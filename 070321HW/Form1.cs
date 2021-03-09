@@ -22,8 +22,8 @@ namespace _070321HW
             if (sender is Button btn)
             {
                 ChangeColorOfButton(btn, Color.Green);
-                ChangeColorOfButton(LondonBtn, Color.Transparent);
-                ChangePictureBoxImage(WallpaperPB, Properties.Resources.baku);
+                ChangeColorOfButton(LondonBtn, SystemColors.ActiveCaption);
+                ChangeFormImage(Properties.Resources.baku);
 
                 this.currentDateTimeLbl.Text = GetDateTime("Azerbaijan Standard Time").ToString("F");
                 this.currentDateTimeLbl.Visible = true;
@@ -35,8 +35,8 @@ namespace _070321HW
             if (sender is Button btn)
             {
                 ChangeColorOfButton(btn, Color.Green);
-                ChangeColorOfButton(BakuBtn, Color.Transparent);
-                ChangePictureBoxImage(WallpaperPB, Properties.Resources.london);
+                ChangeColorOfButton(BakuBtn, SystemColors.ActiveCaption);
+                ChangeFormImage(Properties.Resources.london);
 
                 this.currentDateTimeLbl.Text = GetDateTime("Greenwich Standard Time").ToString("F");
                 this.currentDateTimeLbl.Visible = true;
@@ -50,9 +50,9 @@ namespace _070321HW
             button.BackColor = color;
         }
 
-        private void ChangePictureBoxImage(PictureBox pb, Bitmap image)
+        private void ChangeFormImage(Bitmap image)
         {
-            pb.Image = image;
+            this.BackgroundImage = image;
         }
 
         private DateTime GetDateTime(string id)
@@ -64,5 +64,10 @@ namespace _070321HW
             return localTime.DateTime;
         }
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            BakuBtn.PerformClick();
+        }
     }
 }
